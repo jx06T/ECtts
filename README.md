@@ -1,7 +1,7 @@
 # ECtts
 ###### *version-V1.0* 
 ---
-## [see](https://jx06t.github.io/ECtts/)
+## see [this](https://jx06t.github.io/ECtts/) page online
 
 ## or
 

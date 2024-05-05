@@ -170,7 +170,7 @@ document.querySelector("#play").addEventListener("click", () => {
         }
 
         if (OPTs.letter) {
-            let tEL = new SpeechSynthesisUtterance(OPTs.text_E[i].split("").join(" "));
+            let tEL = new SpeechSynthesisUtterance(OPTs.text_E[i].split("").join("-"));
             // tEL.lang = "en-US";
             tEL.rate = OPTs.speed
             tEL.count = count

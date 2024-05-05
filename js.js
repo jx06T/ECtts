@@ -44,11 +44,9 @@ for (const cookie of cookies) {
 }
 
 if (!jxdata || jxdata == "null") {
-    alert(1)
     OPTs = initdata
     UpData(OPTs)
 } else {
-    alert(2)
     OPTs = JSON.parse(jxdata);
 }
 // alert(JSON.stringify(OPTs))

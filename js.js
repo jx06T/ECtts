@@ -124,7 +124,7 @@ textD.forEach(e => {
         console.log(OPTs)
         UpData(OPTs)
     })
-    console.log(e.id,OPTs)
+    // console.log(e.id,OPTs)
     e.value = OPTs[e.id].join("\n")
     e.textContent = OPTs[e.id].join("\n")
 })
@@ -150,11 +150,8 @@ function playSpeech(utterances, index) {
 }
 document.querySelector("#play").addEventListener("click", () => {
     count ++
-    // 创建空的 SpeechSynthesisUtterance 对象列表
     let utterances = [];
-    // 循环遍历每个英文和中文文本，并创建 SpeechSynthesisUtterance 对象
     for (let i = 0; i < OPTs.text_E.length; i++) {
-        // 创建英文语音
         let tE = new SpeechSynthesisUtterance(OPTs.text_E[i]);
         // tE.lang = "en-US";
         tE.rate = OPTs.speed

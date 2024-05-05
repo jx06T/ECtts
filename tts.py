@@ -71,19 +71,5 @@ for i in range(len(text_C)):
     tCt = generate_silence(time3)
     output += tCt
 
-'''
-for E in text_E:
-    t = gTTS(E)
-    sound_E.append(t)
-    
-for C in text_C:
-    t = gTTS(C)
-text_CE = '。。。。。'.join([text_E[i]+"\n"+text_C[i] for i in range(len(text_C))])
-print(text_CE)
-# 创建 gTTS 对象并将文本转换为语音
-tts = gTTS(text_CE, lang='zh-tw')
-# tts = gTTS(text_CE)
-output.save("output.mp3")
-'''
 output.export("output.wav", format="wav")
 os.system("start output.wav")

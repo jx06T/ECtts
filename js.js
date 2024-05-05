@@ -29,8 +29,8 @@ function UpData(data) {
     // alert(document.cookie)
 }
 
-UpData(null)
-alert("ddd")
+// UpData(null)
+// alert("ddd")
 
 const cookie = document.cookie;
 const cookies = cookie.split(';');

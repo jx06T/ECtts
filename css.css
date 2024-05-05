@@ -1,0 +1,68 @@
+.LR {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.UD {
+    display: flex;
+    flex-flow: column;
+}
+
+.time {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+#opt {
+    font-size: 16px;
+}
+
+.show {
+    margin-right: 16px;
+    /* margin-left: -8px; */
+}
+
+.TF {
+    width: 50px;
+}
+
+.textt {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.UDLR {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px;
+    margin-top: 15px;
+}
+
+/* 在屏幕宽度小于 600px 时的样式 */
+@media only screen and (max-width: 640px) {
+    .UDLR {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .time {
+        width: 60%;
+        min-width: 20px
+    }
+
+    .TF {
+        width: 50px;
+    }
+}
+.SS{
+    margin: 5px;
+    max-width: 800px;
+}
+#play {
+    width: 120px;
+    font-size: 20px;
+    margin: 30px;
+    color: black;
+    border: 1px solid #999999;
+    border-radius:5px;
+}

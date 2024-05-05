@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <title>ECtts</title>
+</head>
+
+<body>
+    <div id="opt" class="UDLR">
+        <span> time1:</span>
+        <input id="time1" value="20" placeholder="20" class="time" type="range" min="1" max="100">
+        <span class="show"> 1000</span>
+        <span> time2:</span>
+        <input id="time2" value="40" placeholder="40" class="time" type="range" min="1" max="100">
+        <span class="show"> 2000</span>
+        <span> time3:</span>
+        <input id="time3" value="60" placeholder="60" class="time" type="range" min="1" max="100">
+        <span class="show"> 3000</span>
+    </div>
+    <div id="opt2" class="UDLR">
+        <span> speed:</span>
+        <input id="speed" value="10" placeholder="10" class="time" type="range" min="1" max="30">
+        <span class="show"> 1</span>
+        <span> repeat:</span>
+        <input id="repeat" value="3" placeholder="3" class="time" type="range" min="1" max="10">
+        <span class="show"> 3</span>
+        <span> letter:</span>
+        <input id="letter" value="1" placeholder="1" class="time TF" type="range" min="0" max="1">
+        <span> chinese:</span>
+        <input id="chinese" value="1" placeholder="1" class="time TF" type="range" min="0" max="1">
+    </div>
+
+    <div id="text" class="UDLR">
+        <textarea id="text_E" value="apple" class="textt" rows="10" cols="30">apple</textarea>
+        <textarea id="text_C" value="蘋果" class="textt" rows="10" cols="30">蘋果</textarea>
+    </div>
+    <div id="select" class="UD">
+        <label for="SE" class="SS">E:</label>
+        <select id="SE" class="SS">
+        </select>
+        <label for="SC" class="SS">C:</label>
+        <select id="SC" class="SS">
+        </select>
+    </div>
+
+    <button id="play">play</button>
+    <script src="js.js"></script>
+</body>
+
+</html>

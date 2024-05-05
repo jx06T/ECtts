@@ -10,7 +10,7 @@
 
 .time {
     margin-right: 2px;
-    margin-left: 2px;
+    margin-left: 4px;
 }
 
 #opt {
@@ -34,8 +34,8 @@
 .UDLR {
     display: flex;
     flex-flow: row nowrap;
-    margin: 10px;
-    margin-top: 15px;
+    margin: 20px;
+    margin-left: 25px;
 }
 
 /* 在屏幕宽度小于 600px 时的样式 */

@@ -39,6 +39,7 @@ for (const cookie of cookies) {
 console.log(jxdata)
 if (!jxdata) {
     UpData(OPTs)
+    OPTs = initdata
 } else {
     OPTs = JSON.parse(jxdata);
 }
@@ -123,6 +124,7 @@ textD.forEach(e => {
         console.log(OPTs)
         UpData(OPTs)
     })
+    console.log(e.id,OPTs)
     e.value = OPTs[e.id].join("\n")
     e.textContent = OPTs[e.id].join("\n")
 })

@@ -21,28 +21,37 @@ const initdata = {
     ]
 }
 function UpData(data) {
-    jsonData = JSON.stringify(data);
+    jsonData = encodeURIComponent(JSON.stringify(data));
     const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14);
     document.cookie = `jxECtts=${jsonData}; expires=${expires.toUTCString()}`;
     console.log(jsonData)
+    // alert(jsonData.length)
+    // alert(document.cookie)
 }
+
+// UpData(null)
+// alert("ddd")
+
 const cookie = document.cookie;
 const cookies = cookie.split(';');
 let jxdata;
 for (const cookie of cookies) {
     const [key, value] = cookie.split('=');
     if (key === 'jxECtts') {
-        jxdata = value;
+        jxdata = decodeURIComponent(value);
         break;
     }
 }
-console.log(jxdata)
-if (!jxdata) {
+
+if (!jxdata || jxdata == "null") {
+    alert(1)
     OPTs = initdata
     UpData(OPTs)
 } else {
+    alert(2)
     OPTs = JSON.parse(jxdata);
 }
+// alert(JSON.stringify(OPTs))
 // -----------------------------------------------------
 setTimeout(() => {
     voices = synth.getVoices();
@@ -84,7 +93,7 @@ function set(e) {
         text.textContent = value
         value = value * 1
     } else {
-        value = value?1:0
+        value = value ? 1 : 0
     }
     if (/time+/.test(id)) {
         value = value / 50
@@ -138,10 +147,10 @@ function playSpeech(utterances, index) {
             }, step);
             return
         }
-        if(utterances[index].count != count){
+        if (utterances[index].count != count) {
             return
         }
-        console.log(utterances[index].count,count)
+        console.log(utterances[index].count, count)
         window.speechSynthesis.speak(utterances[index]);
         setTimeout(function () {
             playSpeech(utterances, index + 1);
@@ -149,7 +158,7 @@ function playSpeech(utterances, index) {
     }
 }
 document.querySelector("#play").addEventListener("click", () => {
-    count ++
+    count++
     let utterances = [];
     for (let i = 0; i < OPTs.text_E.length; i++) {
         let tE = new SpeechSynthesisUtterance(OPTs.text_E[i]);

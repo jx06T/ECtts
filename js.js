@@ -38,8 +38,8 @@ for (const cookie of cookies) {
 }
 console.log(jxdata)
 if (!jxdata) {
-    UpData(OPTs)
     OPTs = initdata
+    UpData(OPTs)
 } else {
     OPTs = JSON.parse(jxdata);
 }

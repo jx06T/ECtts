@@ -60,10 +60,16 @@ setTimeout(() => {
         let aopt = document.createElement("option")
         aopt.text = voices[i].name
         SE.appendChild(aopt)
-
+        if (voices[i].name == "Microsoft Mark - English (United States)" || voices[i].name == "Fred") {
+            SE.selectedIndex = i
+        }
+        
         let aopt2 = document.createElement("option")
         aopt2.text = voices[i].name
         SC.appendChild(aopt2)
+        if (voices[i].name == "Microsoft Hanhan - Chinese (Traditional, Taiwan)" || voices[i].name == "美嘉") {
+            SC.selectedIndex = i
+        }
     }
 }, 1000);
 
@@ -135,6 +141,7 @@ textD.forEach(e => {
     e.value = OPTs[e.id].join("\n")
     e.textContent = OPTs[e.id].join("\n")
 })
+
 // -----------------------------------------------------
 function playSpeech(utterances, index) {
     if (index < utterances.length) {
@@ -145,10 +152,10 @@ function playSpeech(utterances, index) {
             }, step);
             return
         }
+        console.log(utterances[index].count, count)
         if (utterances[index].count != count) {
             return
         }
-        console.log(utterances[index].count, count)
         window.speechSynthesis.speak(utterances[index]);
         setTimeout(function () {
             playSpeech(utterances, index + 1);
@@ -159,6 +166,7 @@ document.querySelector("#play").addEventListener("click", () => {
     count++
     let utterances = [];
     for (let i = 0; i < OPTs.text_E.length; i++) {
+        if (OPTs.text_E[i][0] == "*") continue
         let tE = new SpeechSynthesisUtterance(OPTs.text_E[i]);
         // tE.lang = "en-US";
         tE.rate = OPTs.speed

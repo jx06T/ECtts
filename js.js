@@ -61,7 +61,7 @@ setTimeout(() => {
         aopt.text = voices[i].name
         SE.appendChild(aopt)
         // if (voices[i].name == "Microsoft Mark - English (United States)" || voices[i].name == "Fred") {
-        if (voices[i].name == "Microsoft Ava Online (Natural) - English (United States)" || voices[i].name == "Fred") {
+        if (voices[i].name == "Microsoft Emma Online (Natural) - English (United States)" || voices[i].name == "Fred") {
             SE.selectedIndex = i
         }
         
@@ -179,7 +179,8 @@ document.querySelector("#play").addEventListener("click", () => {
         }
 
         if (OPTs.letter) {
-            let tEL = new SpeechSynthesisUtterance(OPTs.text_E[i].split("").join("-"));
+            // let tEL = new SpeechSynthesisUtterance(OPTs.text_E[i].split("").join("-"));
+            let tEL = new SpeechSynthesisUtterance('"'+OPTs.text_E[i].split("").join('","')+'"');
             // tEL.lang = "en-US";
             tEL.rate = OPTs.speed
             tEL.count = count

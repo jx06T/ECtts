@@ -60,7 +60,8 @@ setTimeout(() => {
         let aopt = document.createElement("option")
         aopt.text = voices[i].name
         SE.appendChild(aopt)
-        if (voices[i].name == "Microsoft Mark - English (United States)" || voices[i].name == "Fred") {
+        // if (voices[i].name == "Microsoft Mark - English (United States)" || voices[i].name == "Fred") {
+        if (voices[i].name == "Microsoft Ava Online (Natural) - English (United States)" || voices[i].name == "Fred") {
             SE.selectedIndex = i
         }
         

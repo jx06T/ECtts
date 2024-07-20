@@ -64,7 +64,7 @@ setTimeout(() => {
         if (voices[i].name == "Microsoft Emma Online (Natural) - English (United States)" || voices[i].name == "Fred") {
             SE.selectedIndex = i
         }
-        
+
         let aopt2 = document.createElement("option")
         aopt2.text = voices[i].name
         SC.appendChild(aopt2)
@@ -166,9 +166,24 @@ function playSpeech(utterances, index) {
 document.querySelector("#play").addEventListener("click", () => {
     count++
     let utterances = [];
-    for (let i = 0; i < OPTs.text_E.length; i++) {
-        if (OPTs.text_E[i][0] == "*") continue
-        let tE = new SpeechSynthesisUtterance(OPTs.text_E[i]);
+
+    let text_E
+    let text_C
+
+    if (OPTs.text_E.includes("!")) {
+        text_E = OPTs.text_E.slice(OPTs.text_E.indexOf("!") + 1, OPTs.text_E.indexOf("!") + 2)
+        text_C = OPTs.text_C.slice(OPTs.text_E.indexOf("!"), OPTs.text_E.indexOf("!") + 1)
+    } else if (OPTs.text_E.includes("-")) {
+        text_E = OPTs.text_E.slice(OPTs.text_E.indexOf("-") + 1)
+        text_C = OPTs.text_C.slice(OPTs.text_E.indexOf("-"))
+    } else {
+        text_E = OPTs.text_E
+        text_C = OPTs.text_C
+    }
+
+    for (let i = 0; i < text_E.length; i++) {
+        if (text_E[i][0] == "*" || text_E[i][0] == "/") continue
+        let tE = new SpeechSynthesisUtterance(text_E[i]);
         // tE.lang = "en-US";
         tE.rate = OPTs.speed
         tE.count = count
@@ -179,10 +194,10 @@ document.querySelector("#play").addEventListener("click", () => {
         }
 
         if (OPTs.letter) {
-            // let tEL = new SpeechSynthesisUtterance(OPTs.text_E[i].split("").join("-"));
-            let tEL = new SpeechSynthesisUtterance('"'+OPTs.text_E[i].split("").join('","')+'"');
+            // let tEL = new SpeechSynthesisUtterance(text_E[i].split("").join("-"));
+            let tEL = new SpeechSynthesisUtterance('"' + text_E[i].split("").join('","') + '"');
             // tEL.lang = "en-US";
-            tEL.rate = OPTs.speed
+            tEL.rate = 1
             tEL.count = count
             tEL.voice = voices.filter(e => e.name == SE.options[SE.selectedIndex].value)[0];
             utterances.push(tEL);
@@ -190,9 +205,9 @@ document.querySelector("#play").addEventListener("click", () => {
 
         if (OPTs.chinese) {
             utterances.push(OPTs.time2);
-            let tC = new SpeechSynthesisUtterance(OPTs.text_C[i]);
+            let tC = new SpeechSynthesisUtterance(text_C[i]);
             // tC.lang = "zh-TW";
-            tC.rate = OPTs.speed
+            tC.rate = 0.9
             tC.count = count
             tC.voice = voices.filter(e => e.name == SC.options[SC.selectedIndex].value)[0];
             utterances.push(tC);

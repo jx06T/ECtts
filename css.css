@@ -66,6 +66,10 @@
     color: black;
     border: 1px solid #999999;
     border-radius:5px;
+    cursor: pointer;
     /* background-color: oklch(90% 0.05 250 / 0.75); */
+}
 
+#play:hover{
+    border: 1px solid #383838;
 }
